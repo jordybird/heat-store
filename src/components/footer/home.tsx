@@ -47,7 +47,7 @@ const Footer = () => {
 
         {/* Social Media */}
         <div className="mb-12">
-          <h2 className="text-xl font-bold mb-6">FIND COOKIES ON SOCIAL:</h2>
+          <h2 className="text-xl font-bold mb-6">FIND HIGHER UP ON SOCIAL:</h2>
           <div className="flex items-center space-x-4">
             <Link href="#" aria-label="Thread" className="hover:text-primary transition-colors">
               <span className="text-2xl font-semibold">𝕏</span>
