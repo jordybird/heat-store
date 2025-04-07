@@ -198,7 +198,9 @@ const Gas = () => {
       >
         <ChevronRight size={20} />
       </button>
+      <Separator className="h-[2px] dark:bg-white/20 bg-gray-400 mt-12" />
     </div>
+    
   )
 }
 
