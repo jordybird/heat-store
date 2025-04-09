@@ -6,40 +6,50 @@ import { Facebook, Instagram } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 
 const Footer = () => {
+  // Define footer sections with link labels.
+  const sections = [
+    {
+      title: "BRAND",
+      links: ["PRODUCT CATALOG", "BLOG", "CAREERS"],
+    },
+    {
+      title: "ABOUT US",
+      links: ["ABOUT US", "TERMS OF USE", "PRIVACY POLICY"],
+    },
+    {
+      title: "PROJECTS",
+      links: ["SOCIAL IMPACT"],
+    },
+    {
+      title: "STORES",
+      links: ["STORE LOCATOR", "SHOP"],
+    },
+  ]
+
   return (
     <footer className="w-full bg-background text-foreground pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 md:px-0">
         {/* Footer Columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {[
-            {
-              title: "BRAND",
-              links: ["PRODUCT CATALOG", "BLOG", "CAREERS"],
-            },
-            {
-              title: "ABOUT US",
-              links: ["ABOUT US", "TERMS OF USE", "PRIVACY POLICY"],
-            },
-            {
-              title: "PROJECTS",
-              links: ["SOCIAL IMPACT"],
-            },
-            {
-              title: "STORES",
-              links: ["STORE LOCATOR", "SHOP"],
-            },
-          ].map((section) => (
+          {sections.map((section) => (
             <div key={section.title}>
               <h2 className="text-xl font-bold mb-6">{section.title}</h2>
               <Separator className="mb-4 bg-foreground/30 dark:bg-white/20" />
               <ul className="space-y-4">
-                {section.links.map((label) => (
-                  <li key={label}>
-                    <Link href="#" className="hover:text-primary transition-colors">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
+                {section.links.map((label) => {
+                  // For the "BLOG" label, route to /blog; otherwise, use a placeholder "#"
+                  const href = label === "BLOG" ? "/blog" : "#"
+                  return (
+                    <li key={label}>
+                      <Link
+                        href={href}
+                        className="hover:text-primary transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}
@@ -49,13 +59,25 @@ const Footer = () => {
         <div className="mb-12">
           <h2 className="text-xl font-bold mb-6">FIND HIGHER UP ON SOCIAL:</h2>
           <div className="flex items-center space-x-4">
-            <Link href="#" aria-label="Thread" className="hover:text-primary transition-colors">
+            <Link
+              href="#"
+              aria-label="Thread"
+              className="hover:text-primary transition-colors"
+            >
               <span className="text-2xl font-semibold">𝕏</span>
             </Link>
-            <Link href="#" aria-label="Facebook" className="hover:text-primary transition-colors">
+            <Link
+              href="#"
+              aria-label="Facebook"
+              className="hover:text-primary transition-colors"
+            >
               <Facebook size={24} />
             </Link>
-            <Link href="#" aria-label="Instagram" className="hover:text-primary transition-colors">
+            <Link
+              href="#"
+              aria-label="Instagram"
+              className="hover:text-primary transition-colors"
+            >
               <Instagram size={24} />
             </Link>
           </div>
